@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // }
             
             switch (true) {
-                case (numberQuestion >= 0 && numberQuestion <= (questions.length - 1)):
+                case (numberQuestion > 0 && numberQuestion <= (questions.length - 1)):
                     questionTitle.textContent = `${questions[indexQuestion].question}`;
                     renderAnswers(indexQuestion);
                     nextButton.classList.remove('d-none');
@@ -170,6 +170,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 case (numberQuestion === 0):
                     prevButton.classList.add('d-none');
+                    questionTitle.textContent = `${questions[indexQuestion].question}`;
+                    nextButton.classList.remove('d-none');
+                    sendButton.classList.add('d-none');
+                    renderAnswers(indexQuestion);
                     break;
 
                 case (numberQuestion === questions.length):
